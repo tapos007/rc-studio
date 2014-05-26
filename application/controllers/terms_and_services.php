@@ -1,0 +1,1 @@
+<?phpif (!defined('BASEPATH'))    exit('No direct script access allowed');class Terms_and_services extends CI_Controller {    function __construct() {        parent::__construct();    }    public function index() {        $this->load->view('terms_services');    }}

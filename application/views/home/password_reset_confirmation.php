@@ -1,0 +1,1 @@
+<div style="padding-top:100px">    <div class="row">        <div class="col-md-4 col-md-offset-3">            <h2>An email with instructions for creating a new password has been sent to you.</h2>        </div>    </div></div>
