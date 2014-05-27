@@ -1,0 +1,1 @@
+<?phpif (!defined('BASEPATH'))    exit('No direct script access allowed');class Video_model extends CI_Model {    //private $table_name = 'login_attempts';    function __construct() {        parent::__construct();    }    function insert_video($data) {        if ($this->db->insert('tbl_videos', $data)) {            return true;        }    }}

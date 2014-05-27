@@ -1,0 +1,193 @@
+.rating {
+    overflow: hidden;
+    display: inline-block;
+}
+.rating-input {
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+.rating:hover .rating-star:hover,
+.rating:hover .rating-star:hover ~ .rating-star,
+.rating-input:checked ~ .rating-star {
+    background-position: 0 0;
+}
+.rating-star,
+.rating:hover .rating-star {
+    float: right;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
+}
+
+/* Just for the demo */
+
+
+ul.advanceSearch
+{
+    list-style-type: none;
+    vartical-align:text-top;
+
+}
+
+
+
+li.advanceSearch
+{
+    list-style-type: none;
+    vartical-align:text-top;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #336699;
+
+}
+
+ul.advanceSearch li .left {
+    display: inline-block;
+
+    width: 7%;
+    vartical-align: middle;
+    float:left;
+}
+
+ul.advanceSearch li .left-search-1 {
+    display: inline-block;
+    width: 40%;
+    vartical-align: top;
+    text-align:left;
+    float:left;
+}
+ul.advanceSearch li .left-search-2 {
+    display: inline-block;
+    text-align:left;
+    width: 60%;
+    vartical-align: top;
+    float:left;
+}
+ul.advanceSearch li .right-search-1 {
+    display: inline-block;
+    text-align:left;
+    width: 10%;
+    text-align:center;
+    float:right;
+}
+ul.advanceSearch li .left-2 {
+    display: inline-block;
+
+    width: 23%;
+    padding-left: 20px;
+
+    float:left;
+}
+ul.advanceSearch li .mid {
+    display: inline-block;
+    width: 20%;
+
+    padding-left: 50px;
+
+    float:left;
+}
+
+ul.advanceSearch li .right {
+    display: inline-block;
+
+    width: 30%;
+    text-align:center;
+    float:right;
+
+}
+
+ul.advanceSearch li .bottom {
+    display: block;
+    height:auto;
+    max-width:100%;
+    padding-top:15px;
+}
+.listingimage {
+    border:0;
+    height:auto;
+    max-width:100%;
+}
+
+
+ul.advanceSearchCourse
+{
+    list-style-type: none;
+    vartical-align:text-top;
+
+}
+
+
+
+li.advanceSearchCourse
+{
+    list-style-type: none;
+    vartical-align:text-top;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #336699;
+
+}
+
+ul.advanceSearchCourse li .left {
+    display: inline-block;
+
+    width: 7%;
+    vartical-align: middle;
+    float:left;
+}
+
+ul.advanceSearchCourse li .left-search-1 {
+    display: inline-block;
+    width: 40%;
+    vartical-align: top;
+    text-align:left;
+    float:left;
+}
+ul.advanceSearchCourse li .left-search-2 {
+    display: inline-block;
+    text-align:left;
+    width: 60%;
+    vartical-align: top;
+    float:left;
+}
+ul.advanceSearchCourse li .right-search-1 {
+    display: inline-block;
+    text-align:left;
+    width: 10%;
+    text-align:center;
+    float:right;
+}
+ul.advanceSearchCourse li .left-2 {
+    display: inline-block;
+
+    width: 23%;
+    padding-left: 20px;
+
+    float:left;
+}
+ul.advanceSearchCourse li .mid {
+    display: inline-block;
+    width: 20%;
+
+    padding-left: 50px;
+
+    float:left;
+}
+
+ul.advanceSearchCourse li .right {
+    display: inline-block;
+
+    width: 30%;
+    text-align:center;
+    float:right;
+
+}
+
+ul.advanceSearchCourse li .bottom {
+    display: block;
+    height:auto;
+    max-width:100%;
+    padding-top:15px;
+}

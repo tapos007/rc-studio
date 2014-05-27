@@ -1,0 +1,15 @@
+(Done) 1. In the edit profile Education & Qualification is not working for both teacher and student.
+
+(Done) 2. In the Edit_Course page add schedule is not working. We also need a delete schedule button here.
+
+(Done) 3. Search Preference is not Saving SubCategory
+
+(Done) 4. Home Page needs to work for Student/Teacher... It will show Image, Welcome Name, Notification icon at the top instead of Login or Join
+
+(Done) 5. Advance Search page should work for visitors
+
+6. In the create course and edit course page TIME input to MySQL will be GMT and display time will be Loged in user TIME
+
+7. Need to design Rating System
+
+8. Messaging

@@ -1,0 +1,308 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    background:#383E4B;
+}
+.navbar-brand{
+    height:42px;
+    padding: 6px !important;
+}
+.nav-hight{
+    height:95px;
+    padding:20px 0;
+}
+.nav-background{
+    background:url(../images/darkbackground.png);
+}
+
+.btn-border-less{
+    border:none;
+}
+.btn-image{
+    background-color:#E0B300;
+    padding:10px 40px;
+    color:#fff;
+    font-weight:bold;
+    text-shadow: #000 1px 1px 1px;
+}
+.btn-image:hover{
+    color:#000;
+    font-weight:bold;
+    text-shadow: #fff 1px 1px 1px;
+    background-color:#E0B300;
+}
+.mainmenu {
+    background:url(../images/darkbackground.png);
+    font-weight: bold;
+    letter-spacing: 0px;
+    height: 60px;
+}
+
+.mainmenu ul {
+    margin: 0px 0px;
+    padding: 0px 0px;
+
+}
+
+.mainmenu li {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    display: inline;
+    list-style: none;
+    position: relative;		
+}
+
+.mainmenu a {
+    display: block;
+    padding: 12px 17px 12px 17px !important;
+    line-height: 35px;
+    text-decoration: none;
+    color: #fff;
+    background:none !important;
+    text-align:center;
+    text-transform:uppercase;
+    margin-left:5px;
+}
+
+.mainmenu a:hover {
+    color:#fff;
+    border:solid 1px #fff;
+    border-radius:5px;
+    line-height: 20px;
+}
+.selected{
+    color:#fff;
+    border:solid 1px #fff;
+    line-height: 20px;
+    border-radius:5px;
+}
+
+
+.nav-bg-less{
+    background:none;
+    color:#fff;
+    font-weight:bold;
+}
+
+.nav-bg-less li a{
+    background:none;
+    color:#fff;
+    font-weight:bold;
+    height:65px;
+    padding-top:30px;
+    padding-bottom:10px;
+}
+.nav-bg-less li a:hover{
+    background:none;
+    color:#fff;
+    font-weight:bold;
+    border-top: 5px solid #fff;
+    padding-top:25px;
+    padding-bottom:10px;
+}
+.thumbnail h4{
+    background:url(../images/darkbackground.png);
+    height:70px;
+    text-align:center;
+    margin:0 0 10px 0;
+    line-height:60px;
+}
+.thumbnail strong {
+    color:#FFF;
+}
+.thumbnail samp {
+    color:#E0B300;
+}
+.thumbnail {
+    margin:0 0 20px 0 !important;
+    padding:0 !important;
+    border:none;
+}
+.thumbnail p {
+    padding:10px 20px;
+}
+.thumbnail:hover{
+    background:url(../images/darkbackground.png);
+    color:#FFF;
+}
+
+.centered{
+    text-align:center;
+}
+.input-lg {
+    border-radius: 6px;
+    font-size: 18px;
+    height: 40px;
+    line-height: 1.33;
+    padding: 10px 70px 10px 10px;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    height: 500px;
+    margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    height: 500px;
+    background-color: #777;
+}
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+
+}
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.footer-firstPart{
+    background:#A49C7D url(../images/world.png) no-repeat top center;
+    height:300px;
+}
+.footer-firstPart h1{
+    font-family:l;
+    font-size:50px;
+    text-align:center;
+    color:#FFF;
+    font-weight:normal;
+    margin-top:40px;
+}
+.footer-firstPart-btn{
+    border:1px solid #FFFFFF;
+    color:#FFF;
+    margin-top:40px;
+}
+.footer-firstPart-btn:hover{
+    background-color:#000;
+    border:1px solid #FFFFFF;
+    color:#FFF;
+}
+.footer-SecondPart{
+    padding-top:40px;
+    padding-bottom:40px;
+    background:#000 url(../images/city.png) no-repeat center bottom;
+    color:#FFF;
+}
+.footer-SecondPart a{
+    color:#FFF;
+}
+.footer-SecondPart h5{
+    font-size:24px;
+}
+.footer-thirdPart {
+    margin-top:0px;
+    margin-bottom:30px;
+    padding-top: 25px;
+    font: Lato, sans-serif;
+    font-weight:400;
+    color:#FFF;
+}
+#s5_socialicons	{
+    float:right;}
+
+#s5_rss, #s5_google, #s5_youtube, #s5_twitter, #s5_fb  {
+    -webkit-transition:  all 100ms ease-in 0s;
+    -moz-transition:  all 100ms ease-in 0s;
+    -o-transition: all 100ms ease-in 0s;
+    transition:  all 100ms ease-in 0s;}
+
+
+#s5_rss:hover, #s5_google:hover, #s5_youtube:hover, #s5_twitter:hover, #s5_fb:hover  {
+    -webkit-transition:  all 100ms ease-in 0s;
+    -moz-transition:  all 100ms ease-in 0s;
+    -o-transition: all 100ms ease-in 0s;
+    transition:  all 100ms ease-in 0s;}	
+
+
+#s5_rss {
+    float:left;
+    height:30px;
+    width:30px;
+    margin-left:5px;
+    margin-bottom:5px;
+    cursor:pointer;
+    background:url(../images/socialIcon/rss.png) no-repeat;}	
+
+#s5_rss:hover {
+    background-position: 0px -32px;}	
+
+#s5_google {
+    float:left;
+    height:30px;
+    width:30px;
+    margin-left:5px;
+    margin-bottom:5px;
+    cursor:pointer;
+    background:url(../images/socialIcon/google.png) no-repeat;}	
+
+#s5_google:hover {
+    background-position: 1px -32px;}
+
+#s5_youtube {
+    float:left;
+    height:30px;
+    width:30px;
+    margin-left:5px;
+    margin-bottom:5px;
+    cursor:pointer;
+    background:url(../images/socialIcon/youtube.png) no-repeat;}	
+
+#s5_youtube:hover {
+    background-position: 0px -32px}
+
+
+#s5_twitter {
+    float:left;
+    height:30px;
+    width:30px;
+    margin-left:5px;
+    margin-bottom:5px;
+    cursor:pointer;
+    background:url(../images/socialIcon/twitter.png) no-repeat;}		
+
+#s5_twitter:hover {
+    background-position: 0px -32px}
+
+
+#s5_fb {
+    float:left;
+    height:30px;
+    width:30px;
+    margin-left:5px;
+    margin-bottom:5px;
+    cursor:pointer;
+    background:url(../images/socialIcon/facebook.png) no-repeat;}		
+
+#s5_fb:hover {
+    background-position: 0px -32px}
+
+.avatar {
+    float: left;
+    width: 60px;
+}
+.avatar img {
+    border-bottom-left-radius: 50em;
+    border-bottom-right-radius: 50em;
+    border-top-left-radius: 50em;
+    border-top-right-radius: 50em;
+    height: 30px;
+    margin-bottom: -14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -13px;
+    width: 30px;
+}

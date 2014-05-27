@@ -1,0 +1,19 @@
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    b.star {
+        background-image: url(../img/star-sprite.png) !important;
+        display: inline-block !important; 
+        height: 16px !important;
+        width: 80px !important;
+        background-position-x: -80px !important;
+        background-position-y: -48px !important;
+    }
+
+    b.star-1    { background-position-x: -64px; }
+    b.star-2    { background-position-x: -48px; }
+    b.star-3    { background-position-x: -32px; }
+    b.star-4    { background-position-x: -16px; }
+    b.star-5    { background-position-x: 0; }
+    i.star-qtr  { background-position-y: -32px; }
+    i.star-half { background-position-y: -16px; }
+    i.star-3qtr { background-position-y: 0; }
+}

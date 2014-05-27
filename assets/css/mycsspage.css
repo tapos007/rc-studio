@@ -1,0 +1,113 @@
+
+.header_menu {
+
+    margin-top:6px;
+
+}
+.navbar-inverse .navbar-nav > li > a {
+    color:white;
+}
+ul.header_menu  li a:hover {
+    -webkit-transition:all 1s ease 0s;
+    border:1px solid #fff;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    color:#B4B4B4;
+    transition:all 1s ease 0s;
+}
+
+.top_box{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+.bottom_box{
+    background-color: white;
+    padding: 15px;
+    color: black;
+}
+.bottom_box:hover{
+    background-color: #666666;
+}
+.footer{
+    background-attachment:scroll;
+    background-image:url(../img/cityback.jpg);
+    background-repeat: no-repeat;
+    color:#000;
+    margin-top: 20px;
+}
+.fullfooter{
+    background-color: white;
+} 
+.footer a{
+    color: white;
+}
+.avatar {
+    float: left;
+    width: 60px;
+}
+.avatar img {
+    border-bottom-left-radius: 50em;
+    border-bottom-right-radius: 50em;
+    border-top-left-radius: 50em;
+    border-top-right-radius: 50em;
+    height: 30px;
+    margin-bottom: -14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -13px;
+    width: 30px;
+}
+label.error{
+    color: red;
+    font-weight: bold;
+}
+/*search*/
+.search {
+    -webkit-box-shadow:rgba(109, 207, 246, 0.498039) 0 0 5px;
+    -webkit-transition:all 0.5s;
+    background-color:#222222;
+    background-image:url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png);
+    background-position:4px 50%;
+    background-repeat:no-repeat no-repeat;
+    border:0 solid #66CC75;
+    border-bottom-left-radius:10em;
+    border-bottom-right-radius:10em;
+    border-top-left-radius:10em;
+    border-top-right-radius:10em;
+    box-shadow:rgba(109, 207, 246, 0.498039) 0 0 5px;
+    outline:none;
+    padding:10px 160px 10px 30px;
+    transition:all 0.5s;
+    color: white;
+
+
+}
+
+
+.navbar-form {
+    margin-top: 10px;
+}
+
+.navbar .navbar-form{
+    padding: 0 15px;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.navbar-search{max-width: 250px;}
+@media(min-width:1200px) {
+    .artical_box{
+        background-color: black;
+        padding: 0;
+        margin-right: 10px;
+        width: 32%; 
+    }
+    #indexcontainer{
+        margin-top: 800px;
+    }
+}
+

@@ -1,0 +1,15 @@
+[19-Apr-2014 08:38:28] PHP Fatal error:  Call to undefined function  site_rul() in /home1/studio/public_html/studionear.com/beta/application/controllers/teacher.php on line 386
+[26-Apr-2014 14:00:45] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:00:53] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:00:58] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:00:58] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:01:07] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:05:27] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:05:46] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:05:46] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:05:46] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:05:47] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:06:09] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:06:10] PHP Fatal error:  Call to a member function GenerateEvent() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/dashboard.php on line 71
+[26-Apr-2014 14:09:35] PHP Fatal error:  Cannot redeclare class Myeventest in /home1/studio/public_html/studionear.com/beta/application/models/myeventest.php on line 22
+[26-Apr-2014 14:10:31] PHP Fatal error:  Call to a member function getAllBatch() on a non-object in /home1/studio/public_html/studionear.com/beta/application/controllers/myeventests.php on line 15
