@@ -17,7 +17,7 @@ if (!defined('BASEPATH'))
   | path to your installation.
   |
  */
-$config['base_url'] = 'http://localhost/studio_1/';
+$config['base_url'] = 'http://localhost/studio/';
 
 /*
   |--------------------------------------------------------------------------

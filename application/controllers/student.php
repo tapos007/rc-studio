@@ -4,7 +4,9 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Student extends CI_Controller {
+
     var $upload_data;
+
     function __construct() {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
@@ -30,121 +32,127 @@ class Student extends CI_Controller {
     }
 
     public function payment_paypal() {
-        require_once APPPATH."/third_party/paypalfunctions.php";// (base_url()."third_party/paypalfunctions.php");
-					echo APPPATH;
-		$CourseID = $this->input->post('courseID');
-		$BatchID= $this->input->post('batchID'); 
-                $email = $this->tank_auth->get_user_email();
-		$PaymentOption = "PayPal";
-		$IsEnrolled = 'NO';
-		$SQLComm = "SELECT  UserID from tbl_useronbatch where UserID = '".$email."' and BatchID = '".$BatchID."'";
-		$IsUserEnrolled_Array = $this->db->query($SQLComm);
-		foreach ($IsUserEnrolled_Array->result() as $IsUserEnrolled) {
-			$IsEnrolled = $IsUserEnrolled->UserID;
-		
-		}
-		
-		if ($IsEnrolled == "NO"){
-			if ( $PaymentOption == "PayPal")
-			{
-					// ==================================
-					// PayPal Express Checkout Module
-					// ==================================
-			
-				
-						
-					//'------------------------------------
-					//' The paymentAmount is the total value of 
-					//' the purchase.
-					//'
-					//' TODO: Enter the total Payment Amount within the quotes.
-					//' example : $paymentAmount = "15.00";
-					//'------------------------------------
-			
-					//$paymentAmount = "15.00";
-					$SQLComm = "SELECT  CouseFree from tbl_course where CourseID = ".$CourseID."";
-					$Amount_raw = $this->db->query($SQLComm);
-					foreach ($Amount_raw->result() as $Amount) {
-						$paymentAmount = $Amount->CouseFree;
-					}
-					
-					//'------------------------------------
-					//' The currencyCodeType  
-					//' is set to the selections made on the Integration Assistant 
-					//'------------------------------------
-					$currencyCodeType = "USD";
-					$paymentType = "Authorization";
-			
-					//'------------------------------------
-					//' The returnURL is the location where buyers return to when a
-					//' payment has been succesfully authorized.
-					//'
-					//' This is set to the value entered on the Integration Assistant 
-					//'------------------------------------
-					$returnURL = base_url()."student/my_courses";
-			
-					//'------------------------------------
-					//' The cancelURL is the location buyers are sent to when they hit the
-					//' cancel button during authorization of payment during the PayPal flow
-					//'
-					//' This is set to the value entered on the Integration Assistant 
-					//'------------------------------------
-					$cancelURL = base_url()."paypal/cancel.php";
-			
-					//'------------------------------------
-					//' Calls the SetExpressCheckout API call
-					//'
-					//' The CallSetExpressCheckout function is defined in the file PayPalFunctions.php,
-					//' it is included at the top of this file.
-					//'-------------------------------------------------
-			
-					
-					$items = array();
-					$items[] = array('name' => 'Course', 'amt' => $paymentAmount, 'qty' => 1);
-				
-					//::ITEMS::
-					
-					// to add anothe item, uncomment the lines below and comment the line above 
-					// $items[] = array('name' => 'Item Name1', 'amt' => $itemAmount1, 'qty' => 1);
-					// $items[] = array('name' => 'Item Name2', 'amt' => $itemAmount2, 'qty' => 1);
-					// $paymentAmount = $itemAmount1 + $itemAmount2;
-					
-					// assign corresponding item amounts to "$itemAmount1" and "$itemAmount2"
-					// NOTE : sum of all the item amounts should be equal to payment  amount 
-					//$this->load->library('paypalfunctions');
-                                        
-                                        $resArray = SetExpressCheckoutDG( $paymentAmount, $currencyCodeType, $paymentType, 
-															$returnURL, $cancelURL, $items );
-			
-					$ack = strtoupper($resArray["ACK"]);
-					if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING")
-					{
-							$token = urldecode($resArray["TOKEN"]);
-							 RedirectToPayPalDG( $token );
-					} 
-					else  
-					{
-							//Display a user friendly Error on the page using any of the following error information returned by PayPal
-							$ErrorCode = urldecode($resArray["L_ERRORCODE0"]);
-							$ErrorShortMsg = urldecode($resArray["L_SHORTMESSAGE0"]);
-							$ErrorLongMsg = urldecode($resArray["L_LONGMESSAGE0"]);
-							$ErrorSeverityCode = urldecode($resArray["L_SEVERITYCODE0"]);
-							
-							echo "SetExpressCheckout API call failed. ";
-							echo "Detailed Error Message: " . $ErrorLongMsg;
-							echo "Short Error Message: " . $ErrorShortMsg;
-							echo "Error Code: " . $ErrorCode;
-							echo "Error Severity Code: " . $ErrorSeverityCode;
-					}
-			}
-		}
-		else {
-		 	//Flash Data
-            $this->session->set_flashdata('msg', 'You are already enrolled into this course...');
+        require_once APPPATH . "/third_party/paypalfunctions.php"; // (base_url()."third_party/paypalfunctions.php");
+        echo APPPATH;
+        $CourseID = $this->input->post('courseID');
+        $BatchID = $this->input->post('batchID');
+        $email = $this->tank_auth->get_user_email();
+        $PaymentOption = "PayPal";
+        $IsEnrolled = 'NO';
+        $SQLComm = "SELECT  UserID from tbl_useronbatch where UserID = '" . $email . "' and BatchID = '" . $BatchID . "'";
+        $IsUserEnrolled_Array = $this->db->query($SQLComm);
+        foreach ($IsUserEnrolled_Array->result() as $IsUserEnrolled) {
+            $IsEnrolled = $IsUserEnrolled->UserID;
+        }
+
+        if ($IsEnrolled == "NO") {
+            if ($PaymentOption == "PayPal") {
+                // ==================================
+                // PayPal Express Checkout Module
+                // ==================================
+                //'------------------------------------
+                //' The paymentAmount is the total value of 
+                //' the purchase.
+                //'
+                //' TODO: Enter the total Payment Amount within the quotes.
+                //' example : $paymentAmount = "15.00";
+                //'------------------------------------
+                //$paymentAmount = "15.00";
+                $SQLComm = "SELECT  CouseFree from tbl_course where CourseID = " . $CourseID . "";
+                $Amount_raw = $this->db->query($SQLComm);
+                foreach ($Amount_raw->result() as $Amount) {
+                    $paymentAmount = $Amount->CouseFree;
+                }
+
+                //'------------------------------------
+                //' The currencyCodeType  
+                //' is set to the selections made on the Integration Assistant 
+                //'------------------------------------
+                $currencyCodeType = "USD";
+                $paymentType = "Authorization";
+
+                //'------------------------------------
+                //' The returnURL is the location where buyers return to when a
+                //' payment has been succesfully authorized.
+                //'
+                //' This is set to the value entered on the Integration Assistant 
+                //'------------------------------------
+                $returnURL = base_url() . "student/my_courses";
+
+                //'------------------------------------
+                //' The cancelURL is the location buyers are sent to when they hit the
+                //' cancel button during authorization of payment during the PayPal flow
+                //'
+                //' This is set to the value entered on the Integration Assistant 
+                //'------------------------------------
+                $cancelURL = base_url() . "paypal/cancel.php";
+
+                //'------------------------------------
+                //' Calls the SetExpressCheckout API call
+                //'
+                //' The CallSetExpressCheckout function is defined in the file PayPalFunctions.php,
+                //' it is included at the top of this file.
+                //'-------------------------------------------------
+
+
+                $items = array();
+                $items[] = array('name' => 'Course', 'amt' => $paymentAmount, 'qty' => 1);
+
+                //::ITEMS::
+                // to add anothe item, uncomment the lines below and comment the line above 
+                // $items[] = array('name' => 'Item Name1', 'amt' => $itemAmount1, 'qty' => 1);
+                // $items[] = array('name' => 'Item Name2', 'amt' => $itemAmount2, 'qty' => 1);
+                // $paymentAmount = $itemAmount1 + $itemAmount2;
+                // assign corresponding item amounts to "$itemAmount1" and "$itemAmount2"
+                // NOTE : sum of all the item amounts should be equal to payment  amount 
+                //$this->load->library('paypalfunctions');
+//                                        $resArray = SetExpressCheckoutDG( $paymentAmount, $currencyCodeType, $paymentType, 
+//															$returnURL, $cancelURL, $items );
+//			
+//					$ack = strtoupper($resArray["ACK"]);
+//					if($ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING")
+//					{
+//							$token = urldecode($resArray["TOKEN"]);
+//							 RedirectToPayPalDG( $token );
+//					} 
+//					else  
+//					{
+//							//Display a user friendly Error on the page using any of the following error information returned by PayPal
+//							$ErrorCode = urldecode($resArray["L_ERRORCODE0"]);
+//							$ErrorShortMsg = urldecode($resArray["L_SHORTMESSAGE0"]);
+//							$ErrorLongMsg = urldecode($resArray["L_LONGMESSAGE0"]);
+//							$ErrorSeverityCode = urldecode($resArray["L_SEVERITYCODE0"]);
+//							
+//							echo "SetExpressCheckout API call failed. ";
+//							echo "Detailed Error Message: " . $ErrorLongMsg;
+//							echo "Short Error Message: " . $ErrorShortMsg;
+//							echo "Error Code: " . $ErrorCode;
+//							echo "Error Severity Code: " . $ErrorSeverityCode;
+//					}
+                $config['business'] = 'info@studionear.com';
+                $config['cpp_header_image'] = ''; //Image header url [750 pixels wide by 90 pixels high]
+                $config['return'] = $returnURL;
+                $config['cancel_return'] = $cancelURL;
+                $config['notify_url'] = 'process_payment.php'; //IPN Post
+                $config['production'] = FALSE; //Its false by default and will use sandbox
+               
+                $config["invoice"] = '843843'; //The invoice id
+
+                $this->load->library('paypal', $config);
+
+                #$this->paypal->add(<name>,<price>,<quantity>[Default 1],<code>[Optional]);
+
+                $this->paypal->add('Course', $paymentAmount); //First item
+                
+
+                $this->paypal->pay(); //Proccess the payment
+            }
+        } else {
             //Flash Data
-			redirect('student/my_courses');
-		}
-			
+            $this->session->set_flashdata('msg', 'You are already enrolled into this course...');
+            //Flash Data1
+            redirect('student/my_courses');
+        }
     }
 
     public function rate_teacher_view() {
@@ -211,6 +219,7 @@ class Student extends CI_Controller {
         $data['content_right'] = '';
         $this->load->view('dashboardTemplate1', $data);
     }
+
     public function my_courses() {
         $var_role = '';
         $email = $this->tank_auth->get_user_email();
@@ -368,7 +377,7 @@ class Student extends CI_Controller {
             $data['main_menu'] = 'dashboard/menu/main_ menu_student';
             $data['user_profile'] = 'dashboard/notification/user_profile_student';
             $data['main_content'] = 'dashboard/content/bbb';
-            $data['content_right'] = '';    
+            $data['content_right'] = '';
             $this->load->view('dashboardTemplate1', $data);
         }
     }
@@ -384,13 +393,13 @@ class Student extends CI_Controller {
       $data['user_email'] = $this->tank_auth->get_user_email();
       $user_email =  $this->notification_model->get_UnReadNotification($this->tank_auth->get_user_id());
       foreach($user_email as $i){
-        $email = $i->email;
+      $email = $i->email;
       }
       $data['notifications'] = $this->notification_model->get_UnReadNotification($email);
       $this->load->view('dashboardTemplate1', $data); }
      */
 
-    public function save_my_profile(){
+    public function save_my_profile() {
         //$this->form_validation->set_rules('username', 'Name', 'trim|required|xss_clean');
         //$this->form_validation->set_rules('address', 'Address', 'trim|required|xss_clean');
         //$this->form_validation->set_rules('country', 'Country', 'trim|required|xss_clean');
@@ -634,7 +643,7 @@ class Student extends CI_Controller {
 
     public function deactivate_account() {
         $data['login_by_username'] = ($this->config->item('login_by_username', 'tank_auth') AND
-        $this->config->item('use_username', 'tank_auth'));
+                $this->config->item('use_username', 'tank_auth'));
         $data['login_by_email'] = $this->config->item('login_by_email', 'tank_auth');
         $this->form_validation->set_rules('login', 'Login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -642,8 +651,7 @@ class Student extends CI_Controller {
 
         // Get login for counting attempts to login
 
-        if ($this->config->item('login_count_attempts', 'tank_auth') AND
-                ($login = $this->input->post('login'))) {
+        if ($this->config->item('login_count_attempts', 'tank_auth') AND ( $login = $this->input->post('login'))) {
             $login = $this->security->xss_clean($login);
         } else {
             $login = '';
@@ -660,7 +668,7 @@ class Student extends CI_Controller {
         $data['errors'] = array();
         if ($this->form_validation->run()) {        // validation ok
             if ($this->tank_auth->login(
-                $this->form_validation->set_value('login'), $this->form_validation->set_value('password'), $this->form_validation->set_value('remember'), $data['login_by_username'], $data['login_by_email'])) {        // success
+                            $this->form_validation->set_value('login'), $this->form_validation->set_value('password'), $this->form_validation->set_value('remember'), $data['login_by_username'], $data['login_by_email'])) {        // success
                 //Update a User at tbl_users activated to 0
                 $this->db->query('Update users set activated = 0 where email ="' . $this->tank_auth->get_user_email() . '"');
                 $this->session->sess_destroy();
@@ -685,8 +693,7 @@ class Student extends CI_Controller {
             $data['show_captcha'] = TRUE;
             if ($data['use_recaptcha']) {
                 $data['recaptcha_html'] = $this->_create_recaptcha();
-            } 
-            else {
+            } else {
                 $data['captcha_html'] = $this->_create_captcha();
             }
         }
@@ -720,26 +727,25 @@ class Student extends CI_Controller {
     function save_payment_info() {
         // Load PayPal library
         $this->config->load('paypal');
-		if($this->input->post('cardProfile')== 'New'){
-        $this->form_validation->set_rules('title', 'Title', 'required');
-        $this->form_validation->set_rules('frist_name', 'Frist Name', 'required');
-        $this->form_validation->set_rules('last_name', 'Last Name', 'required');
-        $this->form_validation->set_rules('address', 'Address', 'required');
-        $this->form_validation->set_rules('city', 'City', 'required');
-        $this->form_validation->set_rules('zip', 'Zip', 'required');
-        $this->form_validation->set_rules('telephone', 'Telephone', 'required');
-        $this->form_validation->set_rules('card_type', 'Card Type', 'required');
-        $this->form_validation->set_rules('card_no', 'Card No', 'required');
-        $this->form_validation->set_rules('cvv', 'Cvv', 'required');
-		}else {
-			$this->form_validation->set_rules('paypal_check', 'Privacy Policy', 'required');
-			$this->form_validation->set_rules('beta_check', 'Beta User Policy', 'required');
-		}
+        if ($this->input->post('cardProfile') == 'New') {
+            $this->form_validation->set_rules('title', 'Title', 'required');
+            $this->form_validation->set_rules('frist_name', 'Frist Name', 'required');
+            $this->form_validation->set_rules('last_name', 'Last Name', 'required');
+            $this->form_validation->set_rules('address', 'Address', 'required');
+            $this->form_validation->set_rules('city', 'City', 'required');
+            $this->form_validation->set_rules('zip', 'Zip', 'required');
+            $this->form_validation->set_rules('telephone', 'Telephone', 'required');
+            $this->form_validation->set_rules('card_type', 'Card Type', 'required');
+            $this->form_validation->set_rules('card_no', 'Card No', 'required');
+            $this->form_validation->set_rules('cvv', 'Cvv', 'required');
+        } else {
+            $this->form_validation->set_rules('paypal_check', 'Privacy Policy', 'required');
+            $this->form_validation->set_rules('beta_check', 'Beta User Policy', 'required');
+        }
 
         if ($this->form_validation->run() == FALSE) {
             redirect('student/purchase/' . $this->input->post('courseID') . '/' . $this->input->post('batchID'));
-        } 
-        else {
+        } else {
             $config = array(
                 'Sandbox' => $this->config->item('Sandbox'), // Sandbox / testing mode option.
                 'APIUsername' => $this->config->item('APIUsername'), // PayPal API username of the API caller
@@ -758,36 +764,35 @@ class Student extends CI_Controller {
             $query_cardInfo = $this->db->query('SELECT distinct(acct), creditcardtype, currencycode, cvv2, acct, expdate, phonenum, salutation, firstname, lastname, street, city, state, countrycode , zip, phonenum FROM tbl_paypal_transaction_detail WHERE student_id="' . $this->tank_auth->get_user_email() . '" AND acct LIKE "%4094%"');
             $cartInfo = $query_cardInfo->row();
             if ($this->input->post('cardProfile') and $this->input->post('cardProfile') != "New") {
-                 $creditcardtype = $cartInfo->creditcardtype;
-                 $acct = $cartInfo->acct;
-                 $expdate = $cartInfo->expdate;
-                 $cvv2 = $cartInfo->cvv2;
-                 $currencycode = $cartInfo->currencycode;
-                 $salutation = $cartInfo->salutation;
-                 $firstname = $cartInfo->firstname;
-                 $lastname = $cartInfo->lastname;
-                 $street = $cartInfo->street;
-                 $city = $cartInfo->city;
-                 $state = $cartInfo->state;
-                 $zip = $cartInfo->zip;
-                 $phonenum = $cartInfo->phonenum;
-                 $countrycode = $cartInfo->countrycode;
-            } 
-            else {
-                 $creditcardtype = trim($this->input->post('card_type', true));
-                 $acct = trim($this->input->post('card_no', true));
-                 $expdate = trim($this->input->post('exp_month', true) . $this->input->post('exp_year', true));
-                 $cvv2 = trim($this->input->post('cvv', true));
-                 $currencycode = 'USD';
-                 $salutation = trim($this->input->post('title', true));
-                 $firstname = trim($this->input->post('frist_name', true));
-                 $lastname = trim($this->input->post('last_name'));
-                 $street = trim($this->input->post('address', true));
-                 $city = trim($this->input->post('city', true));
-                 $state = trim($this->input->post('state', true));
-                 $zip = trim($this->input->post('zip', true));
-                 $phonenum = trim($this->input->post('telephone', true));
-                 $countrycode = 'US';  
+                $creditcardtype = $cartInfo->creditcardtype;
+                $acct = $cartInfo->acct;
+                $expdate = $cartInfo->expdate;
+                $cvv2 = $cartInfo->cvv2;
+                $currencycode = $cartInfo->currencycode;
+                $salutation = $cartInfo->salutation;
+                $firstname = $cartInfo->firstname;
+                $lastname = $cartInfo->lastname;
+                $street = $cartInfo->street;
+                $city = $cartInfo->city;
+                $state = $cartInfo->state;
+                $zip = $cartInfo->zip;
+                $phonenum = $cartInfo->phonenum;
+                $countrycode = $cartInfo->countrycode;
+            } else {
+                $creditcardtype = trim($this->input->post('card_type', true));
+                $acct = trim($this->input->post('card_no', true));
+                $expdate = trim($this->input->post('exp_month', true) . $this->input->post('exp_year', true));
+                $cvv2 = trim($this->input->post('cvv', true));
+                $currencycode = 'USD';
+                $salutation = trim($this->input->post('title', true));
+                $firstname = trim($this->input->post('frist_name', true));
+                $lastname = trim($this->input->post('last_name'));
+                $street = trim($this->input->post('address', true));
+                $city = trim($this->input->post('city', true));
+                $state = trim($this->input->post('state', true));
+                $zip = trim($this->input->post('zip', true));
+                $phonenum = trim($this->input->post('telephone', true));
+                $countrycode = 'US';
             }
 
             $course_result = $query_course->row();
@@ -805,7 +810,7 @@ class Student extends CI_Controller {
                 'startdate' => '', // Month and year that Maestro or Solo card was issued.  MMYYYY
                 'issuenumber' => ''       // Issue number of Maestro or Solo card.  Two numeric digits max.
             );
-				
+
             $PayerInfo = array(
                 'email' => '', // Email address of payer.
                 'payerid' => '', // Unique PayPal customer ID for payer.
@@ -949,6 +954,5 @@ class Student extends CI_Controller {
             }
         }
     }
-	
 
 }
